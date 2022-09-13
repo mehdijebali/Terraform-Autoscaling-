@@ -1,8 +1,8 @@
 #AutoScaling Launch Configuration
-resource "aws_launch_configuration" "levelup-launchconfig" {
-  name_prefix     = "levelup-launchconfig"
-  image_id        = lookup(var.AMIS, var.AWS_REGION)
-  instance_type   = "t2.micro"
+resource "aws_launch_configuration" "tf-launchconfig" {
+  name_prefix     = "tf-launchconfig"
+  image_id        = var.AMI_ID
+  instance_type   = var.INSTANCE_TYPE
   key_name        = aws_key_pair.levelup_key.key_name
 }
 
@@ -13,10 +13,10 @@ resource "aws_key_pair" "levelup_key" {
 }
 
 #Autoscaling Group
-resource "aws_autoscaling_group" "levelup-autoscaling" {
-  name                      = "levelup-autoscaling"
+resource "aws_autoscaling_group" "tf-autoscaling" {
+  name                      = "tf-autoscaling"
   vpc_zone_identifier       = ["subnet-9e0ad9f5", "subnet-d7a6afad"]
-  launch_configuration      = aws_launch_configuration.levelup-launchconfig.name
+  launch_configuration      = aws_launch_configuration.tf-launchconfig.name
   min_size                  = 1
   max_size                  = 2
   health_check_grace_period = 200
@@ -31,9 +31,9 @@ resource "aws_autoscaling_group" "levelup-autoscaling" {
 }
 
 #Autoscaling Configuration policy - Scaling Alarm
-resource "aws_autoscaling_policy" "levelup-cpu-policy" {
-  name                   = "levelup-cpu-policy"
-  autoscaling_group_name = aws_autoscaling_group.levelup-autoscaling.name
+resource "aws_autoscaling_policy" "tf-cpu-policy" {
+  name                   = "tf-cpu-policy"
+  autoscaling_group_name = aws_autoscaling_group.tf-autoscaling.name
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "1"
   cooldown               = "200"
@@ -43,9 +43,9 @@ resource "aws_autoscaling_policy" "levelup-cpu-policy" {
 
 
 #Auto Descaling Policy
-resource "aws_autoscaling_policy" "levelup-cpu-policy-scaledown" {
-  name                   = "levelup-cpu-policy-scaledown"
-  autoscaling_group_name = aws_autoscaling_group.levelup-autoscaling.name
+resource "aws_autoscaling_policy" "tf-cpu-policy-scaledown" {
+  name                   = "tf-cpu-policy-scaledown"
+  autoscaling_group_name = aws_autoscaling_group.tf-autoscaling.name
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "-1"
   cooldown               = "200"

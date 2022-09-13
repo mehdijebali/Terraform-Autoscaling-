@@ -1,1 +1,1 @@
-# Provision Autoscaling Group with Luanch Configuration Template 
+# Provision Autoscaling Group with Terraform

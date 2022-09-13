@@ -3,12 +3,12 @@ resource "aws_launch_configuration" "tf-launchconfig" {
   name_prefix     = "tf-launchconfig"
   image_id        = var.AMI_ID
   instance_type   = var.INSTANCE_TYPE
-  key_name        = aws_key_pair.levelup_key.key_name
+  key_name        = aws_key_pair.tf-ssh-key.key_name
 }
 
 #Generate Key
-resource "aws_key_pair" "levelup_key" {
-    key_name = "levelup_key"
+resource "aws_key_pair" "tf-ssh-key" {
+    key_name = "tf-ssh-key"
     public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 

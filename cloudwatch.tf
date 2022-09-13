@@ -1,6 +1,6 @@
 #Auto scaling Cloud Watch Monitoring
-resource "aws_cloudwatch_metric_alarm" "levelup-cpu-alarm" {
-  alarm_name          = "levelup-cpu-alarm"
+resource "aws_cloudwatch_metric_alarm" "tf-cpu-alarm" {
+  alarm_name          = "tf-cpu-alarm"
   alarm_description   = "Alarm once CPU Uses Increase"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "2"
@@ -11,16 +11,16 @@ resource "aws_cloudwatch_metric_alarm" "levelup-cpu-alarm" {
   threshold           = "30"
 
   dimensions = {
-    "AutoScalingGroupName" = aws_autoscaling_group.levelup-autoscaling.name
+    "AutoScalingGroupName" = aws_autoscaling_group.tf-autoscaling.name
   }
 
   actions_enabled = true
-  alarm_actions   = [aws_autoscaling_policy.levelup-cpu-policy.arn]
+  alarm_actions   = [aws_autoscaling_policy.tf-cpu-policy.arn]
 }
 
 #Auto descaling cloud watch 
-resource "aws_cloudwatch_metric_alarm" "levelup-cpu-alarm-scaledown" {
-  alarm_name          = "levelup-cpu-alarm-scaledown"
+resource "aws_cloudwatch_metric_alarm" "tf-cpu-alarm-scaledown" {
+  alarm_name          = "tf-cpu-alarm-scaledown"
   alarm_description   = "Alarm once CPU Uses Decrease"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "2"
@@ -31,9 +31,9 @@ resource "aws_cloudwatch_metric_alarm" "levelup-cpu-alarm-scaledown" {
   threshold           = "10"
 
   dimensions = {
-    "AutoScalingGroupName" = aws_autoscaling_group.levelup-autoscaling.name
+    "AutoScalingGroupName" = aws_autoscaling_group.tf-autoscaling.name
   }
 
   actions_enabled = true
-  alarm_actions   = [aws_autoscaling_policy.levelup-cpu-policy-scaledown.arn]
+  alarm_actions   = [aws_autoscaling_policy.tf-cpu-policy-scaledown.arn]
 }

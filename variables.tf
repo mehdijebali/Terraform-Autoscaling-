@@ -20,7 +20,7 @@ variable "INSTANCE_TYPE" {
 
 variable "VPC_ZONE_IDENTIFIER" {
   type = list
-  default = ["subnet-0855e6a23018a26b9","subnet-0cc3c7e14fbd1d829"]
+  default = ["us-east-1a","us-east-1b"]
 }
 
 variable "LAUNCH_CONFIGURATION_NAME" {
@@ -78,3 +78,4 @@ variable "AUTO_DE_SCALING_POLICY_SCALING_ADJUSTMENT" {
 variable "AUTOSCALING_POLICY_COOLDOWN" {
   default = "200"
 }
+

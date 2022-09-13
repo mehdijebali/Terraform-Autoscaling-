@@ -20,7 +20,7 @@ variable "INSTANCE_TYPE" {
 
 variable "VPC_ZONE_IDENTIFIER" {
   type = list
-  default = ["us-east-1a","us-east-1b"]
+  default = ["subnet-0e5871e683b310bc3","subnet-04b04399210978637"]
 }
 
 variable "LAUNCH_CONFIGURATION_NAME" {

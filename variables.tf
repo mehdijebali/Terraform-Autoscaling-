@@ -28,7 +28,7 @@ variable "LAUNCH_CONFIGURATION_NAME" {
 }
 
 variable "KEY_NAME" {
-  default = "tf-key"
+  default = "tf-ssh-key"
 }
 
 variable "AUTOSCALING_GROUP_NAME" {

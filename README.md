@@ -46,3 +46,16 @@ apt-get update && apt-get install stress
 stress --cpu 2 --timeout 300
 ```
 ## Expected Results
+After the provisionning is done, we can verify the implementation of AWS resources and test the autoscaling group
+#### Launch Configuration
+![](./Lab_Results/lunch_config.png)
+#### Autoscaling Group
+![](./Lab_Results/auto_scaling.png)
+#### CloudWatch
+![](./Lab_Results/cloudwatch.png)
+#### EC2 instance
+An EC2 instance is created once the autoScaling is activated. note that the desired number of instances is 1.
+![](./Lab_Results/instance.png)
+#### Scaling
+after applying the load in the instance, we should notify the spinning of another instance with the same name
+![](./Lab_Results/scaling_instance.png) 

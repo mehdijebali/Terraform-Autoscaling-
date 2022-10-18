@@ -33,4 +33,16 @@ terraform plan
 ```
 terraform apply
 ```
+7. After the creation is completed, SSH to the EC2 instance
+```
+ssh ec2-user@<public_ip>
+```
+8. Install stress package in order to apply extra load
+```
+apt-get update && apt-get install stress 
+```
+9. apply the load for 5 minutes
+```
+stress --cpu 2 --timeout 300
+```
 ## Expected Results

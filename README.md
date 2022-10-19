@@ -9,7 +9,7 @@ An Auto Scaling group starts by launching enough instances to meet its desired c
 ## Instructions
 1. Clone the project 
 ```
-git clone https://github.com/mehdijebali/Terraform-EBS.git.git
+git clone https://github.com/mehdijebali/Terraform-Autoscaling-.git
 ```
 2. In the project root directory, create an SS key and name it **levelup_key**
 ```

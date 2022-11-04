@@ -1,5 +1,6 @@
 # Provision Autoscaling Group with Terraform
 In this demo, we will create an Autoscaling Group with Launch Configuration template, we will need AWS Cloudwatch service in prder to monitor our created EC2 instances and set up alerts.
+![](./Lab_Results/Autoscaler.png)
 ## About Autoscaling Group
 An Auto Scaling group contains a collection of EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management. An Auto Scaling group also lets you use Amazon EC2 Auto Scaling features such as health check replacements and scaling policies. Both maintaining the number of instances in an Auto Scaling group and automatic scaling are the core functionality of the Amazon EC2 Auto Scaling service.
 

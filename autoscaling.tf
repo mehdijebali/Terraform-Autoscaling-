@@ -33,7 +33,7 @@ resource "aws_autoscaling_group" "tf-autoscaling" {
 
 #Autoscaling Configuration policy - Scaling Alarm
 resource "aws_autoscaling_policy" "tf-cpu-policy" {
-  name                   = var.AUTO_SCALING_POLICY_NAME
+  name                   = var.AUTOSCALING_POLICY_NAME
   autoscaling_group_name = aws_autoscaling_group.tf-autoscaling.name
   adjustment_type        = var.AUTOSCALING_POLICY_ADJUSTMENT_TYPE
   scaling_adjustment     = var.AUTOSCALING_POLICY_SCALING_ADJUSTMENT

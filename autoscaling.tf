@@ -47,7 +47,7 @@ resource "aws_autoscaling_policy" "tf-cpu-policy-scaledown" {
   name                   = var.AUTO_DE_SCALING_POLICY_NAME
   autoscaling_group_name = aws_autoscaling_group.tf-autoscaling.name
   adjustment_type        = var.AUTOSCALING_POLICY_ADJUSTMENT_TYPE
-  scaling_adjustment     = var.AUTOSCALING_POLICY_SCALING_ADJUSTMENT
+  scaling_adjustment     = var.AUTO_DE_SCALING_POLICY_SCALING_ADJUSTMENT
   cooldown               = var.AUTOSCALING_POLICY_COOLDOWN
   policy_type            = var.AUTOSCALING_POLICY_TYPE
 }

@@ -4,6 +4,7 @@ resource "aws_launch_configuration" "tf-launchconfig" {
   image_id        = var.AMI_ID
   instance_type   = var.INSTANCE_TYPE
   key_name        = aws_key_pair.tf-ssh-key.key_name
+  security_groups = [aws_security_group.allow-levelup-ssh.id]
 }
 
 #Generate Key

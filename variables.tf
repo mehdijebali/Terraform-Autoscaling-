@@ -79,3 +79,10 @@ variable "AUTOSCALING_POLICY_COOLDOWN" {
   default = "200"
 }
 
+variable "SG_NAME" {
+  default = "allow-levelup-ssh"
+}
+
+variable "SG_DESCRIPTION" {
+  default = "security group that allows ssh connection"
+}

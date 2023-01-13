@@ -23,8 +23,8 @@ variable "VPC_ZONE_IDENTIFIER" {
   default = ["subnet-0e5871e683b310bc3","subnet-04b04399210978637"]
 }
 
-variable "LAUNCH_CONFIGURATION_NAME" {
-  default = "tf-launchconfig"
+variable "LAUNCH_TEMPLATE_NAME" {
+  default = "tf-launchtemplate"
 }
 
 variable "KEY_NAME" {

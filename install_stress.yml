@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  
+  tasks:
+  - name: Update all packages
+    yum:
+      name: '*'
+      state: latest
+      update_only: yes
+  
+  - name: Ensure a list of yum packages are installed
+    yum:
+      name: amazon-linux-extras
+      state: latest
+      update_cache: yes
+
+  - name: Install Stress
+    yum:
+      name: stress
+      state: present

@@ -9,13 +9,15 @@
       state: latest
       update_only: yes
   
-  - name: Ensure a list of yum packages are installed
+  - name: Install amazon linux extras
     yum:
       name: amazon-linux-extras
       state: latest
       update_cache: yes
 
-  - name: Install Stress
-    yum:
-      name: stress
-      state: present
+  - name: Install Dependencies
+    command: amazon-linux-extras install epel -y
+
+  - name: Install stress
+    command: yum install stress -y
+      

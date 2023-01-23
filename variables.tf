@@ -1,5 +1,5 @@
 variable "AWS_REGION" {
-default = "us-east-1"
+  default = "us-east-1"
 }
 
 variable "AMI_ID" {
@@ -19,8 +19,8 @@ variable "INSTANCE_TYPE" {
 }
 
 variable "VPC_ZONE_IDENTIFIER" {
-  type = list
-  default = ["subnet-0e5871e683b310bc3","subnet-04b04399210978637"]
+  type    = list(any)
+  default = ["subnet-0e5871e683b310bc3", "subnet-04b04399210978637"]
 }
 
 variable "LAUNCH_TEMPLATE_NAME" {

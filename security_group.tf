@@ -1,5 +1,5 @@
 #Security Group for levelupvpc
-resource "aws_security_group" "allow-levelup-ssh" { 
+resource "aws_security_group" "allow-levelup-ssh" {
   name        = var.SG_NAME
   description = var.SG_DESCRIPTION
 
@@ -16,7 +16,7 @@ resource "aws_security_group" "allow-levelup-ssh" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
+
   tags = {
     Name = "${var.SG_NAME}"
   }

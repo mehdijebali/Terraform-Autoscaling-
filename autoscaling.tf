@@ -1,17 +1,17 @@
 #AutoScaling Launch Template
 resource "aws_launch_template" "tf-launchtemplate" {
-  name = var.LAUNCH_TEMPLATE_NAME
-  image_id = data.aws_ami.packer_ami.id
-  instance_type = var.INSTANCE_TYPE
-  key_name = aws_key_pair.tf-ssh-key.key_name
+  name                   = var.LAUNCH_TEMPLATE_NAME
+  image_id               = data.aws_ami.packer_ami.id
+  instance_type          = var.INSTANCE_TYPE
+  key_name               = aws_key_pair.tf-ssh-key.key_name
   vpc_security_group_ids = [aws_security_group.allow-levelup-ssh.id]
-  update_default_version=true
+  update_default_version = true
 }
 
 #Generate Key
 resource "aws_key_pair" "tf-ssh-key" {
-    key_name = var.KEY_NAME
-    public_key = file(var.PATH_TO_PUBLIC_KEY)
+  key_name   = var.KEY_NAME
+  public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 
 #Autoscaling Group

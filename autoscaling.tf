@@ -5,6 +5,7 @@ resource "aws_launch_template" "tf-launchtemplate" {
   instance_type = var.INSTANCE_TYPE
   key_name = aws_key_pair.tf-ssh-key.key_name
   vpc_security_group_ids = [aws_security_group.allow-levelup-ssh.id]
+  update_default_version=true
 }
 
 #Generate Key

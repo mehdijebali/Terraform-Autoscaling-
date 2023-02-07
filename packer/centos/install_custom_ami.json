@@ -26,7 +26,7 @@
     "provisioners": [
         {
             "type": "ansible",
-            "playbook_file": "./install_stress.yml"
+            "playbook_file": "./ansible/main.yml"
             }
     ]
 }

@@ -12,21 +12,29 @@
             "source_ami_filter": {
                 "filters": {
                     "virtualization-type": "hvm",
-                    "name": "amzn2-ami-hvm-2.0.*-gp2",
+                    "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
                     "root-device-type": "ebs"
                 },
-                "owners": ["amazon"],
+                "owners": [
+                    "099720109477"
+                ],
                 "most_recent": true
             },
             "instance_type": "t2.micro",
-            "ssh_username": "ec2-user",
+            "ssh_username": "ubuntu",
             "ami_name": "custom-configuration-{{timestamp}}"
         }
     ],
     "provisioners": [
         {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get update -y"
+            ]
+        },
+        {
             "type": "ansible",
-            "playbook_file": "./install_stress.yml"
+            "playbook_file": "./ansible/main.yml"
             }
     ]
 }

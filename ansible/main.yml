@@ -27,3 +27,9 @@
   - name: Install stress (centos)
     command: yum install stress -y
     when: linux_distribution == "centos"
+  
+  - name: Install stress (ubuntu)
+    apt:
+      name: stress
+      state: present
+    when: linux_distribution == "ubuntu"

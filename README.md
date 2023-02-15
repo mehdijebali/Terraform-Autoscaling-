@@ -8,11 +8,14 @@ The size of an Auto Scaling group depends on the number of instances that you se
 
 An Auto Scaling group starts by launching enough instances to meet its desired capacity. It maintains this number of instances by performing periodic health checks on the instances in the group. The Auto Scaling group continues to maintain a fixed number of instances even if an instance becomes unhealthy. If an instance becomes unhealthy, the group terminates the unhealthy instance and launches another instance to replace it.
 ## Instructions
+<details>
+  <summary>Centos</summary>
+
 1. Clone the project 
 ```
 git clone https://github.com/mehdijebali/Terraform-Autoscaling-.git
 ```
-2. In the project root directory, create an SS key and name it **levelup_key**
+2. In the project root directory, create an SSH key and name it **levelup_key**
 ```
 ssh-keygen
 ``` 
@@ -24,11 +27,11 @@ export AWS_DEFAULT_REGION=us-west-2
 ```
 4. Validate Packer configuration file syntax
 ```
-packer validate install_custom_ami.json
+packer validate ./packer/centos/install_custom_ami.json
 ```
 5. Once the validation is succeeded, you can build the custom image
 ```
-packer build install_custom_ami.json
+packer build ./packer/centos/install_custom_ami.json
 ```
 5. In the project root directory, initiate Terraform in order to install the declared provider in `main.tf` file
 ```
@@ -50,6 +53,55 @@ ssh ec2-user@<public_ip>
 ```
 stress --cpu 2 --timeout 300
 ```
+</details>
+
+<details>
+  <summary>Ubuntu</summary>
+
+1. Clone the project 
+```
+git clone https://github.com/mehdijebali/Terraform-Autoscaling-.git
+```
+2. In the project root directory, create an SSH key and name it **levelup_key**
+```
+ssh-keygen
+``` 
+3. Export your AWS Credentials
+```
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+export AWS_DEFAULT_REGION=us-west-2
+```
+4. Validate Packer configuration file syntax
+```
+packer validate ./packer/ubuntu/install_custom_ami.json
+```
+5. Once the validation is succeeded, you can build the custom image
+```
+packer build ./packer/ubuntu/install_custom_ami.json
+```
+5. In the project root directory, initiate Terraform in order to install the declared provider in `main.tf` file
+```
+terraform init
+```
+6. If you want to see your provisionning details, run the following command
+```
+terraform plan
+```
+7. Apply modifications
+```
+terraform apply
+```
+8. After the creation is completed, SSH to the EC2 instance
+```
+ssh ec2-user@<public_ip>
+```
+9. apply the load for 5 minutes
+```
+stress --cpu 2 --timeout 300
+```
+</details>
+
 ## Expected Results
 After the provisionning is done, we can verify the implementation of AWS resources and test the autoscaling group
 #### Launch Configuration

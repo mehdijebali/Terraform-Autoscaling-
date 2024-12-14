@@ -1,2 +1,3 @@
 ---
 # vars file for stress
+linux_distribution: centos

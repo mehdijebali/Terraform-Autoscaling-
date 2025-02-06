@@ -1,6 +1,6 @@
 #Security Group for levelupvpc
 resource "aws_security_group" "allow-levelup-ssh" {
-  name        = var.SG_NAME
+  name        = local.SG_NAME
   description = var.SG_DESCRIPTION
 
   egress {
@@ -17,8 +17,5 @@ resource "aws_security_group" "allow-levelup-ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "${var.SG_NAME}"
-  }
+  tags = local.sg-tag
 }
-

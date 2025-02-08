@@ -1,7 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 
 ## Providers
 
@@ -31,7 +34,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_AMI_ID"></a> [AMI\_ID](#input\_AMI\_ID) | n/a | `string` | `"ami-09d3b3274b6c5d4aa"` | no |
 | <a name="input_AUTOSCALING_GROUP_MAX_SIZE"></a> [AUTOSCALING\_GROUP\_MAX\_SIZE](#input\_AUTOSCALING\_GROUP\_MAX\_SIZE) | n/a | `number` | `2` | no |
 | <a name="input_AUTOSCALING_GROUP_MIN_SIZE"></a> [AUTOSCALING\_GROUP\_MIN\_SIZE](#input\_AUTOSCALING\_GROUP\_MIN\_SIZE) | n/a | `number` | `1` | no |
 | <a name="input_AUTOSCALING_GROUP_NAME"></a> [AUTOSCALING\_GROUP\_NAME](#input\_AUTOSCALING\_GROUP\_NAME) | n/a | `string` | `"tf-autoscaling"` | no |
@@ -49,10 +51,8 @@ No modules.
 | <a name="input_KEY_NAME"></a> [KEY\_NAME](#input\_KEY\_NAME) | n/a | `string` | `"tf-ssh-key"` | no |
 | <a name="input_LAUNCH_TEMPLATE_NAME"></a> [LAUNCH\_TEMPLATE\_NAME](#input\_LAUNCH\_TEMPLATE\_NAME) | n/a | `string` | `"tf-launchtemplate"` | no |
 | <a name="input_LD_NAME"></a> [LD\_NAME](#input\_LD\_NAME) | n/a | `string` | `"centos"` | no |
-| <a name="input_PATH_TO_PRIVATE_KEY"></a> [PATH\_TO\_PRIVATE\_KEY](#input\_PATH\_TO\_PRIVATE\_KEY) | n/a | `string` | `"levelup_key"` | no |
 | <a name="input_PATH_TO_PUBLIC_KEY"></a> [PATH\_TO\_PUBLIC\_KEY](#input\_PATH\_TO\_PUBLIC\_KEY) | n/a | `string` | `"levelup_key.pub"` | no |
 | <a name="input_SG_DESCRIPTION"></a> [SG\_DESCRIPTION](#input\_SG\_DESCRIPTION) | n/a | `string` | `"security group that allows ssh connection"` | no |
-| <a name="input_SG_NAME"></a> [SG\_NAME](#input\_SG\_NAME) | n/a | `string` | `"allow-levelup-ssh"` | no |
 | <a name="input_VPC_ZONE_IDENTIFIER"></a> [VPC\_ZONE\_IDENTIFIER](#input\_VPC\_ZONE\_IDENTIFIER) | n/a | `list(any)` | <pre>[<br/>  "subnet-0e5871e683b310bc3",<br/>  "subnet-04b04399210978637"<br/>]</pre> | no |
 
 ## Outputs

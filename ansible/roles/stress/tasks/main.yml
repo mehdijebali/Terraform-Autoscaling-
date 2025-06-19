@@ -1,35 +1,35 @@
 ---
 # tasks file for stress
 - name: Update apt cache if needed
-  apt:
-    update_cache: yes
+  aansible.builtin.apt:
+    update_cache: true
     cache_valid_time: 86400
   when: linux_distribution == "ubuntu"
   
 - name: Update all packages (centos)
-  yum:
+  ansible.builtin.yum:
     name: '*'
     state: latest
-    update_only: yes
+    update_only: true
   when: linux_distribution == "centos"
 
 - name: Install amazon linux extras (centos)
-  yum:
+  ansible.builtin.yum:
     name: amazon-linux-extras
     state: latest
-    update_cache: yes
+    update_cache: true
   when: linux_distribution == "centos"
 
 - name: Install Dependencies (centos)
-  command: amazon-linux-extras install epel -y
+  ansible.builtin.command: amazon-linux-extras install epel -y
   when: linux_distribution == "centos"
 
 - name: Install stress (centos)
-  command: yum install stress -y
+  ansible.builtin.command: yum install stress -y
   when: linux_distribution == "centos"
 
 - name: Install stress (ubuntu)
-  apt:
+  ansible.builtin.apt:
     name: stress
     state: present
   when: linux_distribution == "ubuntu"

@@ -1,7 +1,7 @@
 ---
 # tasks file for stress
 - name: Update apt cache if needed
-  aansible.builtin.apt:
+  ansible.builtin.apt:
     update_cache: true
     cache_valid_time: 86400
   when: linux_distribution == "ubuntu"

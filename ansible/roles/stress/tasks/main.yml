@@ -4,32 +4,32 @@
   ansible.builtin.apt:
     update_cache: true
     cache_valid_time: 86400
-  when: linux_distribution == "ubuntu"
+  when: ansible_distribution == "Ubuntu"
   
-- name: Update all packages (centos)
+- name: Update all packages (Amazon)
   ansible.builtin.yum:
     name: '*'
     state: latest
     update_only: true
-  when: linux_distribution == "centos"
+  when: ansible_distribution == "Amazon"
 
-- name: Install amazon linux extras (centos)
+- name: Install amazon linux extras (Amazon)
   ansible.builtin.yum:
     name: amazon-linux-extras
     state: latest
     update_cache: true
-  when: linux_distribution == "centos"
+  when: ansible_distribution == "Amazon"
 
-- name: Install Dependencies (centos)
+- name: Install Dependencies (Amazon)
   ansible.builtin.command: amazon-linux-extras install epel -y
-  when: linux_distribution == "centos"
+  when: ansible_distribution == "Amazon"
 
-- name: Install stress (centos)
+- name: Install stress (Amazon)
   ansible.builtin.command: yum install stress -y
-  when: linux_distribution == "centos"
+  when: ansible_distribution == "Amazon"
 
-- name: Install stress (ubuntu)
+- name: Install stress (Ubuntu)
   ansible.builtin.apt:
     name: stress
     state: present
-  when: linux_distribution == "ubuntu"
+  when: ansible_distribution == "Ubuntu"

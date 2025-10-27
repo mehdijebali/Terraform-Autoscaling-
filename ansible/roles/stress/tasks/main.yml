@@ -5,16 +5,16 @@
     update_cache: true
     cache_valid_time: 86400
   when: ansible_distribution == "Ubuntu"
-  
+
 - name: Update all packages (Amazon)
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name: '*'
     state: latest
     update_only: true
   when: ansible_distribution == "Amazon"
 
 - name: Install amazon linux extras (Amazon)
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name: amazon-linux-extras
     state: latest
     update_cache: true

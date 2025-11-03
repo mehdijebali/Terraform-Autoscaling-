@@ -9,7 +9,6 @@
 - name: Update DNF cache if needed
   ansible.builtin.dnf:
     update_cache: true
-    cache_valid_time: 86400
   when: ansible_distribution == "Amazon"
 
 - name: Install stress (Amazon)

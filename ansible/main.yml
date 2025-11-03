@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Install Stress
+  hosts: all
   become: true
   gather_facts: true
 

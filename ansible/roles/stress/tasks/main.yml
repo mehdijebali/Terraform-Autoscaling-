@@ -5,27 +5,16 @@
     update_cache: true
     cache_valid_time: 86400
   when: ansible_distribution == "Ubuntu"
-  
-- name: Update all packages (Amazon)
-  ansible.builtin.yum:
-    name: '*'
-    state: latest
-    update_only: true
-  when: ansible_distribution == "Amazon"
 
-- name: Install amazon linux extras (Amazon)
-  ansible.builtin.yum:
-    name: amazon-linux-extras
-    state: latest
+- name: Update DNF cache if needed
+  ansible.builtin.dnf:
     update_cache: true
   when: ansible_distribution == "Amazon"
 
-- name: Install Dependencies (Amazon)
-  ansible.builtin.command: amazon-linux-extras install epel -y
-  when: ansible_distribution == "Amazon"
-
 - name: Install stress (Amazon)
-  ansible.builtin.command: yum install stress -y
+  ansible.builtin.dnf:
+    name: stress
+    state: present
   when: ansible_distribution == "Amazon"
 
 - name: Install stress (Ubuntu)

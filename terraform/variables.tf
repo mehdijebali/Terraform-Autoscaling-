@@ -4,12 +4,6 @@ variable "AWS_REGION" {
   default     = "us-east-1"
 }
 
-variable "PATH_TO_PUBLIC_KEY" {
-  type        = string
-  description = "Path to SSH public key"
-  default     = "levelup_key.pub"
-}
-
 variable "INSTANCE_TYPE" {
   type        = string
   description = "AWS Instance type"
@@ -26,12 +20,6 @@ variable "LAUNCH_TEMPLATE_NAME" {
   type        = string
   description = "Launch Template Name"
   default     = "tf-launchtemplate"
-}
-
-variable "KEY_NAME" {
-  type        = string
-  description = "SSH key name"
-  default     = "tf-ssh-key"
 }
 
 variable "AUTOSCALING_GROUP_NAME" {

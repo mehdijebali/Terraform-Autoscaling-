@@ -10,7 +10,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.84.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.100.0 |
 
 ## Modules
 
@@ -25,7 +25,6 @@ No modules.
 | [aws_autoscaling_policy.tf-cpu-policy-scaledown](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_policy) | resource |
 | [aws_cloudwatch_metric_alarm.tf-cpu-alarm](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
 | [aws_cloudwatch_metric_alarm.tf-cpu-alarm-scaledown](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
-| [aws_key_pair.tf-ssh-key](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
 | [aws_launch_template.tf-launchtemplate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_template) | resource |
 | [aws_security_group.allow-levelup-ssh](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_ami.packer_ami](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
@@ -48,10 +47,8 @@ No modules.
 | <a name="input_HEALTH_CHECK_GRACE_PERIOD"></a> [HEALTH\_CHECK\_GRACE\_PERIOD](#input\_HEALTH\_CHECK\_GRACE\_PERIOD) | Health Check Period in seconds | `number` | `200` | no |
 | <a name="input_HEALTH_CHECK_TYPE"></a> [HEALTH\_CHECK\_TYPE](#input\_HEALTH\_CHECK\_TYPE) | Health Check Type | `string` | `"EC2"` | no |
 | <a name="input_INSTANCE_TYPE"></a> [INSTANCE\_TYPE](#input\_INSTANCE\_TYPE) | AWS Instance type | `string` | `"t2.micro"` | no |
-| <a name="input_KEY_NAME"></a> [KEY\_NAME](#input\_KEY\_NAME) | SSH key name | `string` | `"tf-ssh-key"` | no |
 | <a name="input_LAUNCH_TEMPLATE_NAME"></a> [LAUNCH\_TEMPLATE\_NAME](#input\_LAUNCH\_TEMPLATE\_NAME) | Launch Template Name | `string` | `"tf-launchtemplate"` | no |
 | <a name="input_LD_NAME"></a> [LD\_NAME](#input\_LD\_NAME) | Linux Distribution Name | `string` | `"centos"` | no |
-| <a name="input_PATH_TO_PUBLIC_KEY"></a> [PATH\_TO\_PUBLIC\_KEY](#input\_PATH\_TO\_PUBLIC\_KEY) | Path to SSH public key | `string` | `"levelup_key.pub"` | no |
 | <a name="input_SG_DESCRIPTION"></a> [SG\_DESCRIPTION](#input\_SG\_DESCRIPTION) | EC2 Security Group Description | `string` | `"security group that allows ssh connection"` | no |
 | <a name="input_VPC_ZONE_IDENTIFIER"></a> [VPC\_ZONE\_IDENTIFIER](#input\_VPC\_ZONE\_IDENTIFIER) | List of VPC Subnets | `list(any)` | <pre>[<br/>  "subnet-0e5871e683b310bc3",<br/>  "subnet-04b04399210978637"<br/>]</pre> | no |
 

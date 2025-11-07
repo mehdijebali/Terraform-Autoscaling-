@@ -14,7 +14,9 @@
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_ssm-role"></a> [ssm-role](#module\_ssm-role) | github.com/mehdijebali/terraform-modules//ssm-role | v1.0.0 |
 
 ## Resources
 

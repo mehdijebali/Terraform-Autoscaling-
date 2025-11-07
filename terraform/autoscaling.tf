@@ -4,7 +4,11 @@ resource "aws_launch_template" "tf-launchtemplate" {
   image_id               = data.aws_ami.packer_ami.id
   instance_type          = var.INSTANCE_TYPE
   vpc_security_group_ids = [aws_security_group.allow-levelup-ssh.id]
+  user_data              = base64encode(module.ssm-role.user_data)
   update_default_version = true
+  iam_instance_profile {
+    name = module.ssm-role.instance_profile_name
+  }
 }
 
 #Autoscaling Group

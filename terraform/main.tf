@@ -26,5 +26,5 @@ data "aws_ami" "packer_ami" {
 }
 
 module "ssm-role" {
-  source = "github.com/mehdijebali/terraform-modules//ssm-role?ref=v1.0.0"
+  source = "github.com/mehdijebali/terraform-modules//ssm-role?ref=v1.1.0"
 }

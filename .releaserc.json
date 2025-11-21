@@ -1,15 +1,21 @@
 {
   "branches": ["main"],
   "plugins": [
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
     [
-      "@semantic-release/git",
+      "@semantic-release/commit-analyzer",
       {
-        "assets": ["CHANGELOG.md"],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        "parserOpts": {
+          "headerPattern": "^.*\\s(?<type>\\w+)\\/(?<subject>.*)$",
+          "headerCorrespondence": ["type", "subject"]
+        },
+        "releaseRules": [
+          {"type": "Feat", "release": "minor"},
+          {"type": "Fix", "release": "patch"},
+          {"breaking": true, "release": "major"}
+        ]
       }
     ],
+    "@semantic-release/release-notes-generator",
     "@semantic-release/github"
   ]
 }

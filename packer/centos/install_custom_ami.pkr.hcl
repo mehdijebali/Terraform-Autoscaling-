@@ -15,7 +15,7 @@ packer {
 
 source "amazon-ebs" "al2023" {
   ami_name      = "al2023-template-pkr-${formatdate("YYYY-MM-DD-hhmmss", timestamp())}"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   region        = "us-east-1"
   ssh_username  = "ec2-user"
   source_ami_filter {

@@ -11,7 +11,7 @@ data "amazon-ami" "ubuntu" {
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "ubuntu-template-pkr-${formatdate("YYYY-MM-DD-hhmmss", timestamp())}"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   region        = "us-east-1"
   source_ami    = "${data.amazon-ami.ubuntu.id}"
   ssh_username  = "ubuntu"
